@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Simple Localization</title>
+
+    <link rel="stylesheet"
+          href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet"
+          href="assets/style/style.css"/>
+</head>
+<body>
+
+<div class="container-fluid"
+     ng-app="app"
+     ng-controller="AnimalCtrl as ctrl">
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="form-horizontal"
+                  role="form">
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">Please translate this page into: </label>
+
+                    <div class="col-xs-2">
+                        <select class="form-control"
+                                ng-model="ctrl.language"
+                                ng-options="lang.label for lang in ctrl.supportedLanguages"
+                                ng-change="ctrl.updateLocale(ctrl.language)"></select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row"
+         ng-repeat="animal in ctrl.animals">
+        <div class="col-xs-3"><img ng-src="{{animal.img}}"></div>
+        <div class="col-xs-9"><h2 i18n="{{animal.code}}"></h2></div>
+    </div>
+</div>
+
+
+<!-- Scripts -->
+<script src="bower_components/lodash/dist/lodash.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-localization/angular-localization.js"></script>
+<script src="app/app.js"></script>
+<script src="app/controllers/animal.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+img {
+    position: relative;
+    width: 100%
+}
+
+.row {
+    margin: 10px;
+}
+
+.control-label {
+    margin-top: -3px;
+    font-size: 1.2em;
+}
